@@ -4,7 +4,7 @@ repeat task.wait() until game:IsLoaded()
 local LibraryRepository = "https://raw.githubusercontent.com/synnyyy/Obsidian/refs/heads/main"
 local Libraries = {
     Library = LibraryRepository .. "/Library.lua",
-    Information = "https://raw.githubusercontent.com/Synergy-Networks/products/refs/heads/main/Rift/Assets/Information.lua",
+    Information = "https://raw.githubusercontent.com/code-bytee/Rift-Testing/refs/heads/main/Assets/Information.lua",
     API = "https://sdkapi-public.luarmor.net/library.lua"
 }
 local KeyValidated = true
