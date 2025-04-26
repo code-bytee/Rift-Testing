@@ -7,7 +7,7 @@ local Libraries = {
     Information = "https://raw.githubusercontent.com/code-bytee/Rift-Testing/refs/heads/main/Assets/Information.lua",
     API = "https://sdkapi-public.luarmor.net/library.lua"
 }
-local KeyValidated = true
+local KeyValidated = false
 
 local Total = 3
 local Completed = 3
@@ -68,47 +68,7 @@ elseif isfile("RiftAssets/SavedKey.txt") then
 end
 
 if not KeyValidated then
-    local Window = Libraries.Library:CreateWindow({
-        Title = "Rift",
-        Icon = getcustomasset("RiftAssets/Logo.png"),
-        Footer = "Key System · " .. Libraries.Information.VERSION .. " · vaultcord.win/synergy",
-        NotifySide = "Left",
-        ShowCustomCursor = true,
-        ForceCheckbox = false,
-        NotifyOnError = true,
-    })
-    local Tabs = {
-        Key = Window:AddKeyTab("Key System"),
-        Guide = Window:AddTab("Guide", "heart-handshake"),
-    }
-    Tabs.Guide:UpdateWarningBox({
-        Visible = true,
-        Title = "Rift",
-        Text = "Rift can be keyless — enjoy access for just $3.75 via Crypto. Buy now at shoppy.gg/@SynergyNetworks."
-    })
-    local GuideSection = Tabs.Guide:AddLeftGroupbox("Guide")
-    local Games = Tabs.Guide:AddLeftGroupbox("Games Supported")
-    local FAQSection = Tabs.Guide:AddRightGroupbox("FAQ / Issues")
-    Tabs.Key:AddLabel({
-        Text = "To copy the key link, go to the Guide section.\nOnce you've got your key, paste it into the box below and click Execute",
-        DoesWrap = true,
-        Size = 16,
-    })
-    Tabs.Key:AddKeyBox(function(_, ReceivedKey)
-        if Libraries.API.check_key(ReceivedKey).code == "KEY_VALID" then
-            getfenv().script_key = ReceivedKey
-            writefile("RiftAssets/SavedKey.txt", ReceivedKey)
-            KeyValidated = true
-        else
-            Libraries.Library:Notify({
-                Title = string.format('<font color="rgb(%d, %d, %d)">◆ Invalid key</font>', 
-                    Libraries.Library.Scheme.AccentColor.R * 255, 
-                    Libraries.Library.Scheme.AccentColor.G * 255, 
-                    Libraries.Library.Scheme.AccentColor.B * 255
-                ),
-                Description = "This key is not valid. Please try again.",
-                Time = 5,
-            }) 
+    KeyValidated = true
         end
     end)
     local GuideSteps = {
