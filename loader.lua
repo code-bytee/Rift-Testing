@@ -10,7 +10,7 @@ local Libraries = {
 local KeyValidated = true
 
 local Total = 3
-local Completed = 0
+local Completed = 3
 
 for Name, Url in next, Libraries do
     task.spawn(function()
